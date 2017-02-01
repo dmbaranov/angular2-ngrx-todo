@@ -17,9 +17,16 @@ export class TodoList implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new actions.InitListAction());
-
     this.store.select(reducer.getTodoList).subscribe(result => {
       this.todos = result;
     });
+  }
+
+  handleTodoDelete(id: Number) {
+    this.store.dispatch(new actions.DeleteTodoAction(this.todos, id));
+  }
+
+  handleAddTodo() {
+    this.store.dispatch(new actions.AddTodoAction(this.todos, 'lol'));
   }
 }

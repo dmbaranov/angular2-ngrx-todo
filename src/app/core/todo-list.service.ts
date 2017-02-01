@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { Todo } from '../models/todo.model';
 
-const data: Array<Todo> = [{
+let data: Array<Todo> = [{
   id: 0,
   text: 'One',
   isCompleted: false
@@ -22,7 +22,22 @@ export class TodoListService {
   constructor() { }
 
   getTodoList(): Observable<Array<Todo>> {
-    console.log('TodoListService');
     return Observable.of(data).map(res => res);
+  }
+
+  removeTodo(list: ReadonlyArray<Todo>, id: Number): Observable<ReadonlyArray<Todo>> {
+    const newList = list.filter(item => item.id !== id);
+
+    return Observable.of(newList).map(res => res);
+  }
+
+  addTodo(list: ReadonlyArray<Todo>, text: String): Observable<Todo> {
+    const newTodo: Todo = {
+      id: list.length,
+      text: text,
+      isCompleted: false
+    };
+
+    return Observable.of(newTodo).map(res => res);
   }
 }

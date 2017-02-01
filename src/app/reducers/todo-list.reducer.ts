@@ -12,8 +12,13 @@ const initialState: State = {
 export function reducer(state = initialState, action: todoList.Actions): State {
   switch (action.type) {
     case todoList.ActionsTypes.INIT_LIST_SUCCESS:
-      console.log('InitListSuccessReducer');
-      return { todoList: [...action.payload] };
+      return { todoList: action.payload.newList };
+
+    case todoList.ActionsTypes.DELETE_TODO_SUCCESS:
+      return { todoList: action.payload.newList };
+
+    case todoList.ActionsTypes.ADD_TODO_SUCCESS:
+      return { todoList: [...state.todoList, action.payload.newTodo] };
 
     default:
       return state;

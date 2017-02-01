@@ -1,5 +1,7 @@
 <div>TodoList</div>
-<button md-raised-button>lol</button>
+<button md-raised-button (click)="handleAddTodo()">lol</button>
 <ul>
-  <todo-item *ngFor="let todo of todos" [todo]="todo"s></todo-item>
+  <todo-item *ngFor="let todo of todos"
+             [todo]="todo"
+             (onTodoDelete)="handleTodoDelete($event)"></todo-item>
 </ul>
