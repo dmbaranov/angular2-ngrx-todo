@@ -20,6 +20,9 @@ export function reducer(state = initialState, action: todoList.Actions): State {
     case todoList.ActionsTypes.ADD_TODO_SUCCESS:
       return { todoList: [...state.todoList, action.payload.newTodo] };
 
+    case todoList.ActionsTypes.CHANGE_STATUS_SUCCESS:
+      return { todoList: action.payload.newList };
+
     default:
       return state;
   }

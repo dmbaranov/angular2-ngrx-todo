@@ -10,10 +10,15 @@ import { Todo } from '../../models/todo.model';
 export class TodoItemComponent {
   @Input() todo: Todo;
   @Output() onTodoDelete = new EventEmitter<Number>();
+  @Output() onChangeStatus = new EventEmitter<Number>();
 
   constructor() { }
 
   handleTodoDelete(id: Number) {
     this.onTodoDelete.emit(id);
+  }
+
+  handleChangeStatus(id: Number) {
+    this.onChangeStatus.emit(id);
   }
 }

@@ -40,4 +40,15 @@ export class TodoListService {
 
     return Observable.of(newTodo).map(res => res);
   }
+
+  changeStatus(list: ReadonlyArray<Todo>, id: Number) {
+    const newList = list.map(item => {
+      if (item.id === id) {
+        return { ...item, isCompleted: !item.isCompleted };
+      }
+      return item;
+    });
+
+    return Observable.of(newList).map(res => res);
+  }
 }

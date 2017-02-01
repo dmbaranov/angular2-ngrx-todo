@@ -29,4 +29,8 @@ export class TodoList implements OnInit {
   handleAddTodo() {
     this.store.dispatch(new actions.AddTodoAction(this.todos, 'lol'));
   }
+
+  handleChangeStatus(id: Number) {
+    this.store.dispatch(new actions.ChangeTodoStatus(this.todos, id));
+  }
 }

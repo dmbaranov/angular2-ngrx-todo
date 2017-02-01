@@ -1,2 +1,3 @@
 <div [class.completed]="todo.isCompleted">{{todo.text}}</div>
 <button md-raised-button md-ripple (click)="handleTodoDelete(todo.id)">X</button>
+<button md-raised-button md-ripple (click)="handleChangeStatus(todo.id)">V</button>

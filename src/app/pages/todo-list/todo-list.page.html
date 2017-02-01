@@ -3,5 +3,6 @@
 <ul>
   <todo-item *ngFor="let todo of todos"
              [todo]="todo"
-             (onTodoDelete)="handleTodoDelete($event)"></todo-item>
+             (onTodoDelete)="handleTodoDelete($event)"
+             (onChangeStatus)="handleChangeStatus($event)"></todo-item>
 </ul>
