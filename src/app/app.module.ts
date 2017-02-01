@@ -1,10 +1,9 @@
-import { BrowserModule }      from '@angular/platform-browser';
-import { FormsModule }        from '@angular/forms';
-import { HttpModule }         from '@angular/http';
-import { NgModule,
-         ApplicationRef }     from '@angular/core';
-import { RouterModule,
-         PreloadAllModules }  from '@angular/router';
+import 'hammerjs';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterStoreModule } from '@ngrx/router-store'
@@ -20,6 +19,7 @@ import { ROUTES }             from './app.routes';
 import { CoreModule } from './core/core.module';
 import { AppComponent }       from './app.component';
 import { TodoListModule }     from './pages/todo-list/todo-list.module';
+// import { TodoItemModule } from './components/todo-item/todo-item.module';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -33,6 +33,7 @@ import '../styles/headings.css';
     HttpModule,
     CoreModule,
     TodoListModule,
+    // TodoItemModule,
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentStore({

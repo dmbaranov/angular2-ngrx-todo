@@ -10,7 +10,7 @@ const data: Array<Todo> = [{
 }, {
   id: 1,
   text: 'Two',
-  isCompleted: false
+  isCompleted: true
 }, {
   id: 2,
   text: 'Three',
@@ -22,6 +22,7 @@ export class TodoListService {
   constructor() { }
 
   getTodoList(): Observable<Array<Todo>> {
+    console.log('TodoListService');
     return Observable.of(data).map(res => res);
   }
 }

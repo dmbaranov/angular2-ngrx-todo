@@ -9,17 +9,15 @@ export const ActionsTypes = {
 
 export class InitListAction implements Action {
   type = ActionsTypes.INIT_LIST;
-  // payload: string = null;
-  payload: any = null;
+  payload: ReadonlyArray<Todo> = null;
 
-  constructor() { }
+  constructor() { console.log('InitListAction'); }
 }
 
 export class InitListActionSuccess implements Action {
   type = ActionsTypes.INIT_LIST_SUCCESS;
 
-  // constructor(public payload: Array<Todo>) { }
-  constructor(public payload: any) { }
+  constructor(public payload: ReadonlyArray<Todo>) { console.log('InitListActionSuccess'); }
 }
 
 export type Actions

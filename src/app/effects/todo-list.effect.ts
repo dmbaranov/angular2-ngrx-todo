@@ -19,6 +19,7 @@ export class TodoListEffects {
     .switchMap(() => {
       return this.todoListService.getTodoList()
         .map(list => {
+          console.log('InitTodoListEffect');
           return new todoList.InitListActionSuccess(list);
         });
     });
