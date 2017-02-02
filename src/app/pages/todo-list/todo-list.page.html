@@ -1,8 +1,10 @@
 <div>TodoList</div>
 <button md-raised-button (click)="handleAddTodo()">lol</button>
-<ul>
-  <todo-item *ngFor="let todo of todos"
-             [todo]="todo"
-             (onTodoDelete)="handleTodoDelete($event)"
-             (onChangeStatus)="handleChangeStatus($event)"></todo-item>
-</ul>
+<div>
+  <a *ngFor="let todo of todos"
+     [routerLink]="['/item', todo.id]">
+    <todo-item [todo]="todo"
+               (onTodoDelete)="handleTodoDelete($event)"
+               (onChangeStatus)="handleChangeStatus($event)"></todo-item>
+  </a>
+</div>

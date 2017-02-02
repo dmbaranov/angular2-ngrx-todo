@@ -10,7 +10,9 @@ export const ActionsTypes = {
   ADD_TODO:               type('[TodoList] Add todo'),
   ADD_TODO_SUCCESS:       type('[TodoList] Add todo success'),
   CHANGE_STATUS:          type('[TodoList] Change status'),
-  CHANGE_STATUS_SUCCESS:  type('[TodoList] Change status success')
+  CHANGE_STATUS_SUCCESS:  type('[TodoList] Change status success'),
+  GET_TODO_ITEM:          type('[TodoList] Get todo item'),
+  GET_TODO_ITEM_SUCCESS:  type('[TodoList] Get todo item success')
 };
 
 export class InitListAction implements Action {
@@ -65,6 +67,19 @@ export class ChangeTodoStatusSuccess implements Action {
   constructor(public payload: Object) { }
 }
 
+export class GetTodoItem implements Action {
+  type = ActionsTypes.GET_TODO_ITEM;
+  payload = null;
+
+  constructor(public list: ReadonlyArray<Todo>, public id: Number) { }
+}
+
+export class GetTodoItemSuccess implements Action {
+  type = ActionsTypes.GET_TODO_ITEM_SUCCESS;
+
+  constructor(public payload: Object) { }
+}
+
 export type Actions
   = InitListAction
   | InitListActionSuccess
@@ -73,4 +88,6 @@ export type Actions
   | AddTodoAction
   | AddTodoActionSuccess
   | ChangeTodoStatus
-  | ChangeTodoStatusSuccess;
+  | ChangeTodoStatusSuccess
+  | GetTodoItem
+  | GetTodoItemSuccess;

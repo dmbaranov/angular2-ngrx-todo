@@ -51,4 +51,10 @@ export class TodoListService {
 
     return Observable.of(newList).map(res => res);
   }
+
+  getTodoItem(list: ReadonlyArray<Todo>, id: Number) {
+    const todoItem = list.filter(item => item.id === id);
+
+    return Observable.of(todoItem[0]).map(res => res);
+  }
 }

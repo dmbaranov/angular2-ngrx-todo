@@ -13,13 +13,14 @@ import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { TodoListEffects } from './effects/todo-list.effect';
 import { reducer } from './reducers';
 
-import { ENV_PROVIDERS }      from './environment';
-import { ROUTES }             from './app.routes';
+import { ENV_PROVIDERS } from './environment';
+import { ROUTES } from './app.routes';
 
 import { CoreModule } from './core/core.module';
-import { AppComponent }       from './app.component';
-import { TodoListModule }     from './pages/todo-list/todo-list.module';
-// import { TodoItemModule } from './components/todo-item/todo-item.module';
+import { AppComponent } from './app.component';
+import { TodoListModule } from './pages/todo-list/todo-list.module';
+import { TodoItemInfoModule } from './pages/todo-item-info/todo-item-info.module';
+import { TodoItemModule } from './components/todo-item/todo-item.module';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -33,7 +34,8 @@ import '../styles/headings.css';
     HttpModule,
     CoreModule,
     TodoListModule,
-    // TodoItemModule,
+    TodoItemModule,
+    TodoItemInfoModule,
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentStore({

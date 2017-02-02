@@ -56,4 +56,15 @@ export class TodoListEffects {
           return new todoList.ChangeTodoStatusSuccess({newList});
         });
     });
+
+  @Effect()
+  getTodoItem: Observable<Action> = this.actions$
+    .ofType(todoList.ActionsTypes.GET_TODO_ITEM)
+    .map((action: todoList.GetTodoItem) => action)
+    .switchMap((action: todoList.GetTodoItem) => {
+      return this.todoListService.getTodoItem(action.list, action.id)
+        .map((todoItem: Todo) => {
+          return new todoList.GetTodoItemSuccess({todoItem});
+        });
+    });
 }
